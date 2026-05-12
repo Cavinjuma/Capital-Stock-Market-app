@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Counter {
+  id          Int      @id @default(autoincrement())
+  companyName String   @map("company_name")
+  symbol      String   @unique
+  sector      String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("counters")
+}
+
+model Price {
+  id           Int      @id @default(autoincrement())
+  stock        String
+  date         DateTime
+  openingPrice Decimal  @map("opening_price")
+  closingPrice Decimal  @map("closing_price")
+  volume       Int
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@unique([stock, date])
+  @@map("prices")
+}
+
+model Purchase {
+  id            Int      @id @default(autoincrement())
+  stock         String
+  quantity      Int
+  purchasePrice Decimal  @map("purchase_price")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("purchases")
+}
+
+model Sale {
+  id            Int      @id @default(autoincrement())
+  stock         String
+  quantity      Int
+  purchasePrice Decimal  @map("purchase_price")
+  sellingPrice  Decimal  @map("selling_price")
+  profit        Decimal
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("sales")
+}
+

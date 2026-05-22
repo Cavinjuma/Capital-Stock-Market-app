@@ -46,7 +46,7 @@ function CounterForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-2xl shadow-sm"
+      className="text-xl font-bold mb-4 text-white"
     >
       <h2 className="text-2xl font-bold mb-6">
         Register Stock Counter

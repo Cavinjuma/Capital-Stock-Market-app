@@ -60,17 +60,20 @@ function VolumeChart({ selectedStock = "" }) {
   }, [chartData, selectedStock])
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-sm mt-8">
-      <h2 className="text-xl font-bold mb-5">
+    <div className="w-full">
+      <h2 className="text-xl font-bold mb-5 text-white">
         Trading Volume Trend
       </h2>
 
-      <div className="h-80">
+      <div className="h-80 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData}>
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
+            <XAxis dataKey="day" stroke="#9ca3af" tick={{fill: '#9ca3af'}} />
+            <YAxis stroke="#9ca3af" tick={{fill: '#9ca3af'}} />
+            <Tooltip 
+              contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
+              itemStyle={{ color: '#818cf8' }}
+            />
             {selectedStock ? (
               <Bar dataKey={selectedStock} fill={getStockColor(selectedStock)} />
             ) : (
@@ -78,7 +81,7 @@ function VolumeChart({ selectedStock = "" }) {
                 <Bar key={stock} dataKey={stock} fill={getStockColor(stock, index)} />
               ))
             )}
-            {!selectedStock && stocks.length > 0 && <Legend />}
+            {!selectedStock && stocks.length > 0 && <Legend wrapperStyle={{ color: '#9ca3af' }} />}
           </BarChart>
         </ResponsiveContainer>
       </div>

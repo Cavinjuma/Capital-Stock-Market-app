@@ -7,13 +7,14 @@ function CountersTable() {
     useContext(AppContext)
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-sm mt-8">
 
-      <h2 className="text-2xl font-bold mb-6">
+      <div className="p-4">
+      <h2 className="text-xl font-bold mb-4 text-white">
         Registered Counters
       </h2>
 
-      <table className="w-full">
+       <div className="overflow-x-auto">
+        <table className="w-full">
 
         <thead>
           <tr className="border-b">
@@ -59,6 +60,7 @@ function CountersTable() {
 
       </table>
 
+    </div>
     </div>
   )
 }

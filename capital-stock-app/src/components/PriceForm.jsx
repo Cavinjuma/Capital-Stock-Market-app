@@ -67,7 +67,7 @@ function PriceForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-2xl shadow-sm"
+      className="bg-[#131722] p-6 rounded-2xl shadow-sm"
     >
       <h2 className="text-2xl font-bold mb-6">
         Record Daily Stock Price
@@ -84,7 +84,7 @@ function PriceForm() {
             name="stock"
             value={formData.stock}
             onChange={handleChange}
-            className="w-full border p-3 rounded-lg"
+            className="bg-[#131722] border p-3 rounded-lg"
             required
           >
             <option value="">

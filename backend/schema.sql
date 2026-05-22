@@ -1,10 +1,8 @@
 -- Database Schema for Capital Stock App
 
--- Create database (run this separately if needed)
+-- Create database if it doesn't exist 
 -- CREATE DATABASE capital_stock;
 
--- Use the database
--- \c capital_stock;
 
 -- Counters table
 CREATE TABLE IF NOT EXISTS counters (

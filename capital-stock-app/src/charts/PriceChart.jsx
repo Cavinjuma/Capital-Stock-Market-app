@@ -51,23 +51,31 @@ function PriceChart({ selectedStock = "" }) {
   }, [filteredPrices])
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-sm mt-8">
-      <h2 className="text-xl font-bold mb-5">
+    <div className="w-full">
+      <h2 className="text-xl font-bold mb-5 text-white flex justify-between items-center">
         Stock Price Trend
       </h2>
+      
 
-      <div className="h-80">
+      <div className="h-80 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData}>
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
+            <XAxis dataKey="day" stroke="#9ca3af" tick={{fill: '#9ca3af'}} />
+            <YAxis stroke="#9ca3af" tick={{fill: '#9ca3af'}} />
+            <Tooltip 
+              contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
+              itemStyle={{ color: '#818cf8' }}
+            />
             <Line
               type="monotone"
               dataKey="price"
-              stroke={getStockColor(selectedStock)}
+              fill="#8b5cf6"
+              fillOpacity={0.5}
+              stroke={selectedStock ? getStockColor(selectedStock) : "#818cf8"}
               strokeWidth={2}
-              dot={{ r: 3 }}
+              dot={{ r: 3, fill: '#818cf8', strokeWidth: 0 }}
+              activeDot={{ r: 5, fill: '#6366f1' }}
+             
             />
           </LineChart>
         </ResponsiveContainer>

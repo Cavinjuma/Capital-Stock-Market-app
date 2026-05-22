@@ -8,7 +8,6 @@ function PurchaseForm() {
     stock: "",
     quantity: "",
     purchasePrice: "",
-    createdAt: new Date().toISOString().split("T")[0],
   })
 
   const handleChange = (e) => {
@@ -26,7 +25,6 @@ function PurchaseForm() {
         stock: formData.stock,
         quantity: Number(formData.quantity),
         purchasePrice: Number(formData.purchasePrice),
-        createdAt: formData.createdAt,
       })
 
       setPurchases([
@@ -40,7 +38,6 @@ function PurchaseForm() {
         stock: "",
         quantity: "",
         purchasePrice: "",
-        createdAt: new Date().toISOString().split("T")[0],
       })
 
       alert(`Purchase Recorded: KES ${total}`)
@@ -53,13 +50,13 @@ function PurchaseForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-2xl shadow-sm"
+      className="bg-[#0f172d] p-6 rounded-2xl shadow-sm"
     >
       <h2 className="text-2xl font-bold mb-6">
         Record Stock Purchase
       </h2>
 
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid md:grid-cols-3 gap-4">
 
         <select
           name="stock"
@@ -99,18 +96,9 @@ function PurchaseForm() {
           required
         />
 
-        <input
-          type="date"
-          name="createdAt"
-          value={formData.createdAt}
-          onChange={handleChange}
-          className="border p-3 rounded-lg"
-          required
-        />
-
       </div>
 
-      <button className="bg-black text-white px-6 py-3 rounded-lg mt-6">
+      <button className="bg-green-500 text-white px-6 py-3 rounded-lg mt-6">
         Save Purchase
       </button>
     </form>

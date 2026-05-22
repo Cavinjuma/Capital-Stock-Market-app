@@ -58,7 +58,7 @@ function SalesForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-2xl shadow-sm"
+      className="border-[#0f245e] p-6 rounded-2xl shadow-sm"
     >
       <h2 className="text-2xl font-bold mb-6">
         Record Stock Sale
@@ -70,7 +70,7 @@ function SalesForm() {
           name="stock"
           value={formData.stock}
           onChange={handleChange}
-          className="border p-3 rounded-lg"
+          className="bg-[#131722] border border-[#1f2937] p-3 rounded-lg"
           required
         >
           <option value="">
@@ -126,7 +126,7 @@ function SalesForm() {
 
       </div>
 
-      <button className="bg-black text-white px-6 py-3 rounded-lg mt-6">
+      <button className="bg-red-500 text-white px-6 py-3 rounded-lg mt-6">
         Save Sale
       </button>
     </form>

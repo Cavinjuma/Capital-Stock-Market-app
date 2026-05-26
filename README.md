@@ -3,7 +3,6 @@
 
 A sleek, high-performance financial dashboard web application built to monitor, record, and analyze stock purchases and sales. Designed with a modern, dark-themed UI to provide traders and investors with clear clarity at a glance on their profits, losses, and holding metrics.
 
-
 ## ✨ Features
 
 *   **📊 Dynamic Sales & Purchases Logs:** Keep real-time tracking of individual stock quantities, purchase values, selling values, and exact execution dates.
@@ -14,6 +13,8 @@ A sleek, high-performance financial dashboard web application built to monitor, 
 ## 🛠️ Tech Stack
 
 *   **Frontend:** React (JSX), JavaScript (ES6+)
+*   **Backend:** Node.js, express.js API, axios
+*   **Database:** PostgreSQL
 *   **Styling:** Tailwind CSS (Custom color palette, dark mode optimizations)
 *   **State Management:** React Hooks (`useState`)
 

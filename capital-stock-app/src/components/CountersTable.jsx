@@ -1,10 +1,11 @@
 import { useContext } from "react"
+import { useState }from "react"
 import { AppContext } from "../context/AppContext"
 
 function CountersTable() {
 
-  const { counters } =
-    useContext(AppContext)
+  const { counters } = useContext(AppContext)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
 
@@ -35,8 +36,10 @@ function CountersTable() {
         </thead>
 
         <tbody>
-
-          {counters.map((counter, index) => (
+          
+          {counters
+          .slice(0, isExpanded ? counters.length : 3)
+          .map((counter, index) => (
 
             <tr key={index} className="border-b">
 
@@ -55,10 +58,25 @@ function CountersTable() {
             </tr>
 
           ))}
-
+            {counters.length === 0 && (
+    <tr>
+      <td colSpan="3" className="p-4 text-center text-gray-500">No counters found.</td>
+    </tr>
+  )}
         </tbody>
 
       </table>
+
+      {counters.length > 3 && (
+   <div className="bg-purple-500 text-white px-6 py-3 rounded-lg mt-6 btn-container">
+    <button
+      className="toggle-btn"
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      {isExpanded ? 'See Less' : 'See More...'}
+    </button>
+  </div>
+  )}
 
     </div>
     </div>

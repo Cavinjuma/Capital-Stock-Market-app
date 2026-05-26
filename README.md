@@ -3,6 +3,9 @@
 
 A sleek, high-performance financial dashboard web application built to monitor, record, and analyze stock purchases and sales. Designed with a modern, dark-themed UI to provide traders and investors with clear clarity at a glance on their profits, losses, and holding metrics.
 
+<img width="1500" height="788" alt="image" src="https://github.com/user-attachments/assets/b94d18d4-5b18-43ea-9036-e7e528c618ee" />
+
+## Live hosting: https://capital-stock-market-app.vercel.app/ 
 ## ✨ Features
 
 *   **📊 Dynamic Sales & Purchases Logs:** Keep real-time tracking of individual stock quantities, purchase values, selling values, and exact execution dates.

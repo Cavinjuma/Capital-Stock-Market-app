@@ -62,7 +62,7 @@ function PurchaseForm() {
           name="stock"
           value={formData.stock}
           onChange={handleChange}
-          className="border p-3 rounded-lg"
+          className="bg-[#131722] border border-[#1f2937] p-3 rounded-lg"
           required
         >
           <option value="">

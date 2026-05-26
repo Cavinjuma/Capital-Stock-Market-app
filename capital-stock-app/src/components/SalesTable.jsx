@@ -1,8 +1,10 @@
 import { useContext } from "react"
+import { useState }from "react"
 import { AppContext } from "../context/AppContext"
 
 function SalesTable() {
   const { sales } = useContext(AppContext)
+   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="p-4">
@@ -24,7 +26,9 @@ function SalesTable() {
           </thead>
 
           <tbody>
-            {sales.map((sale, index) => (
+            {sales
+            .slice(0, isExpanded ? sales.length : 3)
+            .map((sale, index) => (
               <tr key={index} className="border-b border-[#1f2937] hover:bg-[#1a1f2e] transition-colors">
                 <td className="p-3 font-bold text-white">{sale.stock}</td>
                 <td className="p-3">{sale.quantity}</td>
@@ -43,6 +47,18 @@ function SalesTable() {
             )}
           </tbody>
         </table>
+           {/* Conditionally show the button container ONLY if there are more than 4 items */}
+          {sales.length > 3 && (
+           <div className="bg-purple-500 text-white px-6 py-3 rounded-lg mt-6 btn-container">
+           <button
+              className="toggle-btn"
+              onClick={() => setIsExpanded(!isExpanded)}
+           >
+               {isExpanded ? 'See Less' : 'See More...'}
+            </button>
+            </div>
+          )}
+
       </div>
     </div>
   )

@@ -1,8 +1,10 @@
 import { useContext } from "react"
+import { useState }from "react"
 import { AppContext } from "../context/AppContext"
 
 function PurchasesTable() {
   const { purchases } = useContext(AppContext)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="p-4">
@@ -23,25 +25,43 @@ function PurchasesTable() {
           </thead>
 
           <tbody>
-            {purchases.map((purchase, index) => (
-              <tr key={index} className="border-b border-[#1f2937] hover:bg-[#1a1f2e] transition-colors">
-                <td className="p-3 font-bold text-white">{purchase.stock}</td>
-                <td className="p-3">{purchase.quantity}</td>
-                <td className="p-3">Ksh {purchase.purchasePrice}</td>
-                <td className="p-3">Ksh {(purchase.quantity * purchase.purchasePrice).toFixed(2)}</td>
-                <td className="p-3">{new Date(purchase.createdAt).toLocaleDateString()}</td>
-              </tr>
-            ))}
-            {purchases.length === 0 && (
-              <tr>
-                <td colSpan="5" className="p-4 text-center text-gray-500">No purchases found.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+  {/* Use .slice() to control how many rows are shown */}
+  {purchases
+    .slice(0, isExpanded ? purchases.length : 3)
+    .map((purchase, index) => (
+      <tr key={index} className="border-b border-[#1f2937] hover:bg-[#1a1f2e] transition-colors">
+        <td className="p-3 font-bold text-white">{purchase.stock}</td>
+        <td className="p-3">{purchase.quantity}</td>
+        <td className="p-3">Ksh {purchase.purchasePrice}</td>
+        <td className="p-3">Ksh {(purchase.quantity * purchase.purchasePrice).toFixed(2)}</td>
+        <td className="p-3">{new Date(purchase.createdAt).toLocaleDateString()}</td>
+      </tr>
+    ))
+  }
+  
+  {purchases.length === 0 && (
+    <tr>
+      <td colSpan="5" className="p-4 text-center text-gray-500">No purchases found.</td>
+    </tr>
+  )}
+  </tbody>
+  </table>
+
+   {/* Conditionally show the button container ONLY if there are more than 4 items */}
+  {purchases.length > 3 && (
+   <div className="bg-purple-500 text-white px-6 py-3 rounded-lg mt-6 btn-container">
+    <button
+      className="toggle-btn"
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      {isExpanded ? 'See Less' : 'See More...'}
+    </button>
+  </div>
+  )}
       </div>
-    </div>
-  )
+      </div>
+  )  
+  
 }
 
 export default PurchasesTable

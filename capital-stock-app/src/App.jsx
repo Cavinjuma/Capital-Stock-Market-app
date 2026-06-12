@@ -6,6 +6,7 @@ import Prices from "./pages/Prices"
 import Purchases from "./pages/Purchases"
 import Sales from "./pages/Sales"
 import Reports from "./pages/Reports"
+import StockMarket from './components/StockMarket';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/purchases" element={<Purchases />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/reports" element={<Reports />} />
+        <Route path="/StockMarket" element={<StockMarket />} />
       </Routes>
     </BrowserRouter>
   )

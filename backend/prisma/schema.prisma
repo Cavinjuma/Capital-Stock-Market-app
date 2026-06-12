@@ -17,7 +17,11 @@ model Counter {
   companyName String   @map("company_name")
   symbol      String   @unique
   sector      String?
+  industry    String?   // optional
+  marketCap   Float?    // prefilled placeholder (0 or null)
+  isActive    Boolean  @default(true)
   createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt
 
   @@map("counters")
 }

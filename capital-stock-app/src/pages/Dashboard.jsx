@@ -9,6 +9,9 @@ import VolumeChart from "../charts/VolumeChart"
 import ProfitLossChart from "../charts/ProfitLossChart"
 import { AppContext } from "../context/AppContext"
 import CountersTable from "../components/CountersTable"
+import StockMarket from "../components/StockMarket"
+import StockTicker from "../components/StockTicker"
+import MobileAppPopup from "../components/MobileAppPopup"
 
 
 function Dashboard() {
@@ -47,9 +50,10 @@ const stocksList = useMemo(() => {
 
   return (
     <MainLayout>
-
+        <StockTicker />
+          <MobileAppPopup />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-
+        
         <StatCard
           title="Registered Counters"
           value={counters.length}
@@ -77,9 +81,12 @@ const stocksList = useMemo(() => {
         />
 
       </div>
-
+            <div className="bg-[#131722] rounded-xl border border-[#1f2937] overflow-hidden p-6">
+               <StockMarket />
+            </div>
+         
       <div className="border-b border-[#1f2937] mb-6">
-        <nav className="flex space-x-8">
+        <nav className="flex space-x-10">
           {["Holdings", "Daily Prices", "Transactions", "Analytics"].map(tab => (
             <button
               key={tab}
@@ -95,7 +102,6 @@ const stocksList = useMemo(() => {
           ))}
         </nav>
       </div>
-
 
 
 

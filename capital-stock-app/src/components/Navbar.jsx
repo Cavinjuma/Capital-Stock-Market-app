@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function Navbar() {
+function Navbar() { 
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 border-b border-[#1f2937] bg-[#0b0f19] shadow-sm">  
       <Link to="/" className="flex items-center space-x-3">
